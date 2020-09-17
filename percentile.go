@@ -46,19 +46,19 @@ func Calculate(percentile int, slice Interface) (float64, error) {
 }
 
 // int 类型的实现
-type Int []int
+type IntSlice []int
 
-func (p Int) Len() int { return len(p) }
+func (p IntSlice) Len() int { return len(p) }
 
-func (p Int) Less(i, j int) bool { return p[i] < p[j] }
+func (p IntSlice) Less(i, j int) bool { return p[i] < p[j] }
 
-func (p Int) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
+func (p IntSlice) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
 
-func (p Int) Get(i int) float64 { return float64(p[i]) }
+func (p IntSlice) Get(i int) float64 { return float64(p[i]) }
 
-func (p Int) Avg(i, j int) float64 { return float64(p[i]+p[j]) / 2 }
+func (p IntSlice) Avg(i, j int) float64 { return float64(p[i]+p[j]) / 2 }
 
-func CalculateInt(percentile int, slice Int) (float64, error) {
+func CalculateInt(percentile int, slice IntSlice) (float64, error) {
 	res, err := Calculate(percentile, slice)
 	if err != nil {
 		return 0, err
@@ -67,19 +67,19 @@ func CalculateInt(percentile int, slice Int) (float64, error) {
 }
 
 // float 类型的实现
-type Float64 []float64
+type Float64Slice []float64
 
-func (p Float64) Len() int { return len(p) }
+func (p Float64Slice) Len() int { return len(p) }
 
-func (p Float64) Less(i, j int) bool { return p[i] < p[j] }
+func (p Float64Slice) Less(i, j int) bool { return p[i] < p[j] }
 
-func (p Float64) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
+func (p Float64Slice) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
 
-func (p Float64) Get(i int) float64 { return p[i] }
+func (p Float64Slice) Get(i int) float64 { return p[i] }
 
-func (p Float64) Avg(i, j int) float64 { return (p[i] + p[j]) / 2 }
+func (p Float64Slice) Avg(i, j int) float64 { return (p[i] + p[j]) / 2 }
 
-func CalculateFloat64(percentile int, slice Float64) (float64, error) {
+func CalculateFloat64(percentile int, slice Float64Slice) (float64, error) {
 	res, err := Calculate(percentile, slice)
 	if err != nil {
 		return 0, err

@@ -40,8 +40,8 @@ import (
 
 func main() {
 	// 从一个 int切片 中获取P90的值
-	// percentile.Int类型对percentile.Interface接口的实现在percentile包中
-	var sliceInt percentile.Int = []int{1, 3, 4, 6, 2, 9, 4, 7, 10, 11}
+	// percentile.IntSlice类型对percentile.Interface接口的实现在percentile包中
+	var sliceInt percentile.IntSlice = []int{1, 3, 4, 6, 2, 9, 4, 7, 10, 11}
 	p90, err := percentile.CalculateInt(90, sliceInt)
 	if err != nil {
 		log.Fatal(err)
@@ -49,8 +49,8 @@ func main() {
 	fmt.Println(p90) // return 10.5
 	
 	// 从一个 float64切片 中获取中位数（P50）
-	// // percentile.Int类型对percentile.Interface接口的实现在percentile包中
-	var sliceFloat percentile.Float64 = []float64{1, 3.2, 2.1, 4.99, 5, 8, 5, 7, 8.97, 4, 234, 0}
+	// percentile.Float64Slice类型对percentile.Interface接口的实现在percentile包中
+	var sliceFloat percentile.Float64Slice = []float64{1, 3.2, 2.1, 4.99, 5, 8, 5, 7, 8.97, 4, 234, 0}
 	p50, err := percentile.CalculateFloat64(50, sliceFloat)
 	if err != nil {
 		log.Fatal(err)
